@@ -1,7 +1,7 @@
 $(function(){
-    geruserinfo()
+    getUserInfo()
     // 点击按钮 退出
-    
+    let layer = layui.layer
     $('#btnLogin').on('click',function(){
         // console.log('ok');
         // 提示用户是否退出
@@ -15,8 +15,8 @@ $(function(){
           });
     })
 })
-// 获取用户的基本信息
-function geruserinfo(){
+   // 获取用户的基本信息
+   function getUserInfo(){
     $.ajax({
         method:"GET",
         url:"/my/userinfo",
@@ -24,7 +24,7 @@ function geruserinfo(){
         //     Authorization:localStorage.getItem('token') || ''
         // },
         success:function(res){
-        console.log(res);
+        // console.log(res);
         if(res.status !== 0){
             return layer.msg('获取用户信息失败')
         }
@@ -48,13 +48,13 @@ function geruserinfo(){
         // 获取用户头像的信息
 function renderAvatar(data){
     // 获取用户名
-let name = data.username || data.nickname
+let name = data.nickname || data.username
     // 设置欢迎文本
     $('#welcome').html('欢迎&nbsp;&nbsp;'+name)
     // 按需渲染用户头像
     if(data.user_pic !== null){
         // 渲染图片头像
-        $('.layui-nav-img').arrt('src',data.user_pic).show()
+        $('.layui-nav-img').attr('src',data.user_pic).show()
         $('.text-avatar').hide()
     }else{
         // 渲染文字头像
