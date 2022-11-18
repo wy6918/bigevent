@@ -14,7 +14,7 @@ $(function(){
 
   // 1.3 创建裁剪区域
   $image.cropper(options)
-
+  $('#fileBtn').hide()
 //   监听上传图片事件
 $('#btnChooseImage').on('click',function(){
     $('#fileBtn').click()
@@ -23,7 +23,7 @@ $('#btnChooseImage').on('click',function(){
 // 获取用户需要上传的照片
 $('#fileBtn').on('change',function(e){
     // console.log(e);
-    console.log(11);
+    // console.log(11);
     if(e.target.files.length === 0){
         return layer.msg('请选择照片')
     }

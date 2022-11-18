@@ -3,7 +3,8 @@ $.ajaxPrefilter(function(options){
     // 再该函数里，我们可以拿到给ajax配置的对象
     // console.log(opt.url);
     // 统一拼接根路径
-    options.url = 'http://www.liulongbin.top:3007' + options.url
+     // 'http://big-event-api-t.itheima.net' 备用接口
+    options.url = 'http://api-breakingnews-web.itheima.net' + options.url
     // console.log(options.url);
     // 统一为有限接口 设置headers请求头
     // 如果找到该字符，则为 value 的索引位置；否则如果未找到，则为 -1。
